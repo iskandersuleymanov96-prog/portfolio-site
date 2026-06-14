@@ -162,3 +162,58 @@ export function StaggerItem({ children, className = "" }: Props) {
     </motion.div>
   );
 }
+
+export function SectionReveal({ children, className = "", delay = 0 }: Props & { delay?: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 1.2, delay, ease: [0.16, 1, 0.3, 1] }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function TextReveal({ children, className = "", delay = 0 }: Props & { delay?: number }) {
+  const words = typeof children === "string" ? children.split(" ") : [children];
+  return (
+    <span className={`inline-flex flex-wrap ${className}`} aria-label={typeof children === "string" ? children : undefined}>
+      {words.map((word, i) => (
+        <motion.span
+          key={i}
+          initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, delay: delay + i * 0.04, ease: [0.16, 1, 0.3, 1] }}
+          className="inline-block mr-[0.3em]"
+        >
+          {word}
+        </motion.span>
+      ))}
+    </span>
+  );
+}
+
+export function ParallaxSection({ children, className = "", speed = 0.1 }: Props & { speed?: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 1 }}
+      className={className}
+    >
+      <motion.div
+        initial={{ y: speed * 100 }}
+        whileInView={{ y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+      >
+        {children}
+      </motion.div>
+    </motion.div>
+  );
+}

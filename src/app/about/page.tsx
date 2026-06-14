@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
-import PageTransition, { SectionLabel, SectionTitle, Divider, FadeInUp, ImageScaleReveal } from "@/components/PageTransition";
+import PageTransition, { SectionLabel, SectionTitle, Divider, FadeInUp, ImageScaleReveal, SectionReveal } from "@/components/PageTransition";
 import { services } from "@/lib/data";
 
 const timeline = [
@@ -99,6 +99,7 @@ export default function AboutPage() {
 
       <Divider />
 
+      <SectionReveal>
       <section className="section-padding px-6 md:px-12 lg:px-16" aria-labelledby="philosophy-heading">
         <div className="max-w-[1400px] mx-auto">
           <SectionLabel>Philosophy</SectionLabel>
@@ -136,9 +137,11 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      </SectionReveal>
 
       <Divider />
 
+      <SectionReveal>
       <section className="section-padding px-6 md:px-12 lg:px-16" aria-labelledby="services-heading-about">
         <div className="max-w-[1400px] mx-auto">
           <SectionLabel>Services</SectionLabel>
@@ -165,9 +168,11 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      </SectionReveal>
 
       <Divider />
 
+      <SectionReveal>
       <section className="section-padding px-6 md:px-12 lg:px-16" aria-labelledby="timeline-heading">
         <div className="max-w-[1400px] mx-auto">
           <SectionLabel>Experience</SectionLabel>
@@ -189,6 +194,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      </SectionReveal>
     </PageTransition>
   );
 }

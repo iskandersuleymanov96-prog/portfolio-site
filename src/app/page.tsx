@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { useRef } from "react";
-import PageTransition, { SectionLabel, SectionTitle, Divider, FadeInUp, ClipReveal, ImageScaleReveal, HorizontalSlideIn } from "@/components/PageTransition";
+import PageTransition, { SectionLabel, SectionTitle, Divider, FadeInUp, ClipReveal, ImageScaleReveal, HorizontalSlideIn, SectionReveal } from "@/components/PageTransition";
 import LoadingScreen from "@/components/LoadingScreen";
 import { projects } from "@/lib/data";
 
@@ -119,6 +119,7 @@ export default function Home() {
         </motion.div>
       </section>
 
+      <SectionReveal>
       <section className="section-padding px-6 md:px-12 lg:px-16" aria-labelledby="works-heading">
         <div className="max-w-[1400px] mx-auto">
           <SectionLabel>Selected Works</SectionLabel>
@@ -248,9 +249,11 @@ export default function Home() {
           </FadeInUp>
         </div>
       </section>
+      </SectionReveal>
 
       <Divider />
 
+      <SectionReveal>
       <section className="section-padding px-6 md:px-12 lg:px-16" aria-labelledby="about-heading">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12 items-center">
           <HorizontalSlideIn className="lg:col-span-5">
@@ -290,9 +293,11 @@ export default function Home() {
           </ClipReveal>
         </div>
       </section>
+      </SectionReveal>
 
       <Divider />
 
+      <SectionReveal>
       <section className="section-padding px-6 md:px-12 lg:px-16" aria-labelledby="services-heading">
         <div className="max-w-[1400px] mx-auto">
           <SectionLabel>Services</SectionLabel>
@@ -339,9 +344,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </SectionReveal>
 
       <Divider />
 
+      <SectionReveal>
       <section className="section-padding px-6 md:px-12 lg:px-16" aria-labelledby="cta-heading">
         <div className="max-w-[1400px] mx-auto text-center">
           <FadeInUp>
@@ -393,6 +400,7 @@ export default function Home() {
           </FadeInUp>
         </div>
       </section>
+      </SectionReveal>
     </PageTransition>
   );
 }
