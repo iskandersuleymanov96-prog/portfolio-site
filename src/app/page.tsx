@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { useRef } from "react";
-import PageTransition, { SectionLabel, SectionTitle, Divider, FadeInUp, ClipReveal, ImageScaleReveal, HorizontalSlideIn, SectionReveal } from "@/components/PageTransition";
+import PageTransition, { SectionLabel, SectionTitle, Divider, FadeInUp, ClipReveal, ImageScaleReveal, HorizontalSlideIn, SectionReveal, TextReveal } from "@/components/PageTransition";
 import LoadingScreen from "@/components/LoadingScreen";
 import { projects } from "@/lib/data";
 
@@ -259,9 +259,9 @@ export default function Home() {
           <HorizontalSlideIn className="lg:col-span-5">
             <SectionLabel>About</SectionLabel>
             <h2 id="about-heading" className="heading-display">
-              A practice rooted in
+              <TextReveal>A practice rooted in</TextReveal>
               <br />
-              <span className="text-[#c9a96e]">craft &amp; intention</span>
+              <span className="text-[#b8976a]"><TextReveal delay={0.15}>craft &amp; intention</TextReveal></span>
             </h2>
             <p className="mt-10 body-large max-w-md">
               Working at the convergence of film, fashion, and artificial
@@ -353,40 +353,15 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto text-center">
           <FadeInUp>
             <SectionLabel>Get in Touch</SectionLabel>
-            <div className="overflow-hidden mt-4">
-              <motion.h2
-                initial={{ y: "100%" }}
-                whileInView={{ y: "0%" }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2, ease: [0.77, 0, 0.175, 1] }}
-                id="cta-heading"
-                className="heading-giant"
-              >
-                Let&apos;s create
-              </motion.h2>
-            </div>
-            <div className="overflow-hidden">
-              <motion.h2
-                initial={{ y: "100%" }}
-                whileInView={{ y: "0%" }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2, delay: 0.1, ease: [0.77, 0, 0.175, 1] }}
-                className="heading-giant text-[#c9a96e]"
-              >
-                something
-              </motion.h2>
-            </div>
-            <div className="overflow-hidden">
-              <motion.h2
-                initial={{ y: "100%" }}
-                whileInView={{ y: "0%" }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2, delay: 0.2, ease: [0.77, 0, 0.175, 1] }}
-                className="heading-giant"
-              >
-                together
-              </motion.h2>
-            </div>
+            <h2 id="cta-heading" className="heading-giant mt-4">
+              <TextReveal>Let&apos;s create</TextReveal>
+            </h2>
+            <h2 className="heading-giant text-[#b8976a]">
+              <TextReveal delay={0.12}>something</TextReveal>
+            </h2>
+            <h2 className="heading-giant">
+              <TextReveal delay={0.24}>together</TextReveal>
+            </h2>
             <div className="mt-16">
               <Link href="/contact" className="magnetic-btn">
                 Start a Project

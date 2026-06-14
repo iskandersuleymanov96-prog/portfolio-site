@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
-import PageTransition, { SectionLabel, SectionTitle, Divider, FadeInUp, ImageScaleReveal, SectionReveal } from "@/components/PageTransition";
+import PageTransition, { SectionLabel, SectionTitle, Divider, FadeInUp, ImageScaleReveal, SectionReveal, TextReveal } from "@/components/PageTransition";
 import { services } from "@/lib/data";
 
 const timeline = [
@@ -71,9 +71,8 @@ export default function AboutPage() {
 
           <FadeInUp delay={0.2} className="lg:col-span-7 flex flex-col justify-center">
             <h2 id="bio-heading" className="sr-only">Biography</h2>
-            <p className="heading-editorial text-[#e8e8e8]">
-              Saintnuit is a multidisciplinary creative practice operating at
-              the intersection of film, fashion, and artificial intelligence.
+            <p className="heading-editorial text-[#e0ddd5]">
+              <TextReveal>Saintnuit is a multidisciplinary creative practice operating at the intersection of film, fashion, and artificial intelligence.</TextReveal>
             </p>
             <p className="mt-10 body-large max-w-lg">
               Founded on the belief that technology should amplify — not
@@ -125,9 +124,9 @@ export default function AboutPage() {
             ].map((item, i) => (
               <FadeInUp key={item.title} delay={i * 0.12} className={`md:col-span-4 ${i === 1 ? "md:col-start-5" : ""} ${i === 2 ? "md:col-start-9" : ""}`}>
                 <div className="group">
-                  <span className="text-[10px] text-[#c9a96e] tracking-[0.2em] font-mono">{item.num}</span>
-                  <div className="w-12 h-[1px] bg-white/[0.06] my-8 group-hover:w-20 group-hover:bg-[#c9a96e]/30 transition-all duration-700" aria-hidden="true" />
-                  <h3 className="heading-section mb-5">{item.title}</h3>
+                  <span className="text-[10px] text-[#b8976a] tracking-[0.2em] font-mono">{item.num}</span>
+                  <div className="w-12 h-[1px] bg-white/[0.06] my-8 group-hover:w-20 group-hover:bg-[#b8976a]/30 transition-all duration-700" aria-hidden="true" />
+                  <h3 className="heading-section mb-5"><TextReveal>{item.title}</TextReveal></h3>
                   <p className="text-sm text-[#666] leading-relaxed">
                     {item.text}
                   </p>
@@ -155,8 +154,8 @@ export default function AboutPage() {
                     <span className="label-tiny text-[#444]">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="heading-section mt-5 mb-3 group-hover:text-[#c9a96e] transition-colors duration-500">
-                      {service.title}
+                    <h3 className="heading-section mt-5 mb-3 group-hover:text-[#b8976a] transition-colors duration-500">
+                      <TextReveal>{service.title}</TextReveal>
                     </h3>
                     <p className="text-sm text-[#666] leading-relaxed">
                       {service.description}
