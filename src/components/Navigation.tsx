@@ -49,7 +49,7 @@ export default function Navigation() {
     <>
       {/* Scroll progress bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-[1px] bg-[#c9a96e]/40 z-[60] origin-left"
+        className="fixed top-0 left-0 right-0 h-[1px] bg-[#b8976a]/40 z-[60] origin-left"
         style={{ scaleX }}
       />
 
@@ -57,13 +57,13 @@ export default function Navigation() {
       <motion.header
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.5, ease: [0.32, 0.72, 0, 1] }}
+        transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
         className="fixed top-0 left-0 right-0 z-50"
       >
         <nav
-          className={`flex items-center justify-between px-6 md:px-10 lg:px-16 py-6 transition-all duration-700 ${
+          className={`flex items-center justify-between px-6 md:px-10 lg:px-16 py-6 transition-all duration-500 ${
             scrolled
-              ? "bg-[#080808]/80 backdrop-blur-xl"
+              ? "bg-[#060606]/95"
               : "bg-transparent"
           }`}
           role="navigation"
@@ -72,7 +72,7 @@ export default function Navigation() {
           {/* Logo */}
           <Link
             href="/"
-            className="heading-section text-[#e8e8e8] hover:text-[#c9a96e] transition-colors duration-500"
+            className="editorial-heading text-[#e0ddd5] hover:text-[#b8976a] transition-colors duration-500"
             aria-label="Saintnuit - Home"
           >
             S.
@@ -85,10 +85,10 @@ export default function Navigation() {
                 key={link.href}
                 href={link.href}
                 role="menuitem"
-                className={`label-tiny transition-all duration-300 ${
+                className={`text-[10px] tracking-[0.2em] uppercase transition-all duration-300 ${
                   pathname === link.href
-                    ? "text-[#c9a96e]"
-                    : "text-[#666] hover:text-[#e8e8e8]"
+                    ? "text-[#e0ddd5] opacity-100"
+                    : "text-[#6b6860] opacity-70 hover:text-[#e0ddd5] hover:opacity-100"
                 }`}
               >
                 {link.label}
@@ -105,24 +105,24 @@ export default function Navigation() {
           >
             <motion.span
               animate={isOpen ? { rotate: 45, y: 4, width: 24 } : { rotate: 0, y: 0, width: 24 }}
-              className="h-[1px] bg-[#e8e8e8] block origin-center"
-              transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
+              className="h-[1px] bg-[#e0ddd5] block origin-center"
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
             />
             <motion.span
               animate={isOpen ? { opacity: 0, x: -8 } : { opacity: 1, x: 0 }}
-              className="w-16 h-[1px] bg-[#e8e8e8] block"
+              className="w-16 h-[1px] bg-[#e0ddd5] block"
               transition={{ duration: 0.2 }}
             />
             <motion.span
               animate={isOpen ? { rotate: -45, y: -4, width: 24 } : { rotate: 0, y: 0, width: 16 }}
-              className="h-[1px] bg-[#e8e8e8] block origin-center"
-              transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
+              className="h-[1px] bg-[#e0ddd5] block origin-center"
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
             />
           </button>
         </nav>
       </motion.header>
 
-      {/* Mobile fullscreen overlay — staggered letter animation */}
+      {/* Mobile fullscreen overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -130,7 +130,7 @@ export default function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-40 bg-[#080808] flex flex-col items-center justify-center"
+            className="fixed inset-0 z-40 bg-[#060606] flex flex-col items-center justify-center"
             role="dialog"
             aria-modal="true"
             aria-label="Navigation menu"
@@ -139,21 +139,21 @@ export default function Navigation() {
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.href}
-                  initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
                   transition={{
-                    delay: 0.15 + i * 0.08,
-                    duration: 0.7,
-                    ease: [0.32, 0.72, 0, 1],
+                    delay: 0.05 + i * 0.06,
+                    duration: 0.6,
+                    ease: [0.16, 1, 0.3, 1],
                   }}
                 >
                   <Link
                     href={link.href}
                     className={`block py-3 text-5xl md:text-6xl tracking-[0.05em] font-light transition-colors duration-300 ${
                       pathname === link.href
-                        ? "text-[#c9a96e]"
-                        : "text-[#e8e8e8] hover:text-[#c9a96e]"
+                        ? "text-[#b8976a]"
+                        : "text-[#e0ddd5] hover:text-[#b8976a]"
                     }`}
                     style={{ fontFamily: "var(--font-serif)" }}
                   >
@@ -166,8 +166,8 @@ export default function Navigation() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="absolute bottom-12 label-tiny"
+              transition={{ delay: 0.5 }}
+              className="absolute bottom-12 text-[10px] tracking-[0.2em] uppercase text-[#6b6860]"
             >
               Saintnuit &copy; {new Date().getFullYear()}
             </motion.div>

@@ -8,10 +8,7 @@ interface Props {
   className?: string;
 }
 
-const springTransition = {
-  duration: 0.8,
-  ease: [0.32, 0.72, 0, 1] as [number, number, number, number],
-};
+const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
 export default function PageTransition({ children, className = "" }: Props) {
   return (
@@ -19,7 +16,7 @@ export default function PageTransition({ children, className = "" }: Props) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.4 }}
       className={className}
     >
       {children}
@@ -30,10 +27,10 @@ export default function PageTransition({ children, className = "" }: Props) {
 export function SectionLabel({ children }: { children: ReactNode }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 16 }}
+      initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ ...springTransition, delay: 0.1 }}
+      transition={{ duration: 0.7, ease, delay: 0.1 }}
       className="mb-6"
     >
       <span className="eyebrow">{children}</span>
@@ -45,11 +42,11 @@ export function SectionTitle({ children, id, className = "" }: { children: React
   return (
     <motion.h2
       id={id}
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 1, ease: [0.32, 0.72, 0, 1] }}
-      className={`heading-display ${className}`}
+      transition={{ duration: 0.9, ease }}
+      className={`editorial-heading text-5xl md:text-6xl lg:text-7xl ${className}`}
     >
       {children}
     </motion.h2>
@@ -62,7 +59,7 @@ export function Divider() {
       initial={{ scaleX: 0 }}
       whileInView={{ scaleX: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 1.2, ease: [0.32, 0.72, 0, 1] }}
+      transition={{ duration: 1, ease }}
       className="h-[1px] bg-gradient-to-r from-transparent via-white/[0.06] to-transparent origin-left"
     />
   );
@@ -71,10 +68,10 @@ export function Divider() {
 export function FadeInUp({ children, className = "", delay = 0 }: Props & { delay?: number }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 1, delay, ease: [0.32, 0.72, 0, 1] }}
+      transition={{ duration: 0.8, delay, ease }}
       className={className}
     >
       {children}
@@ -103,7 +100,7 @@ export function ImageScaleReveal({ children, className = "", delay = 0 }: Props 
         initial={{ scale: 1.15 }}
         whileInView={{ scale: 1 }}
         viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 1.6, delay, ease: [0.32, 0.72, 0, 1] }}
+        transition={{ duration: 1.6, delay, ease }}
       >
         {children}
       </motion.div>
@@ -117,7 +114,7 @@ export function HorizontalSlideIn({ children, className = "", delay = 0 }: Props
       initial={{ opacity: 0, x: -60 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 1, delay, ease: [0.32, 0.72, 0, 1] }}
+      transition={{ duration: 1, delay, ease }}
       className={className}
     >
       {children}
@@ -149,13 +146,26 @@ export function StaggerItem({ children, className = "" }: Props) {
   return (
     <motion.div
       variants={{
-        hidden: { opacity: 0, y: 30 },
+        hidden: { opacity: 0, y: 20 },
         visible: {
           opacity: 1,
           y: 0,
-          transition: { duration: 0.8, ease: [0.32, 0.72, 0, 1] },
+          transition: { duration: 0.7, ease },
         },
       }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function MagneticLink({ children, className = "" }: Props) {
+  return (
+    <motion.div
+      whileHover={{ scale: 1.01 }}
+      whileTap={{ scale: 0.99 }}
+      transition={{ duration: 0.3, ease }}
       className={className}
     >
       {children}
