@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 
 const socialLinks = [
   { href: "https://instagram.com/saintnuit", label: "Instagram" },
@@ -20,31 +19,11 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/[0.04] bg-[#080808]" role="contentinfo">
+    <footer className="border-t border-white/[0.04] bg-[#060606]" role="contentinfo">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <div className="pt-24 pb-20">
-          <Link href="/contact" className="group block">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: [0.32, 0.72, 0, 1] }}
-            >
-              <span className="label-tiny text-[#c9a96e] mb-6 block">Get in Touch</span>
-              <h2 className="heading-giant text-[#e8e8e8] group-hover:text-[#c9a96e] transition-colors duration-700">
-                Let&apos;s
-                <br />
-                <span className="text-stroke-white">work</span>
-                <br />
-                together
-              </h2>
-            </motion.div>
-          </Link>
-        </div>
-
-        <div className="py-16 border-t border-white/[0.04] grid grid-cols-1 md:grid-cols-12 gap-12">
+        <div className="py-16 grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
-            <Link href="/" className="heading-section block mb-6 text-[#e8e8e8]">
+            <Link href="/" className="heading-section block mb-6 text-[#e0ddd5]">
               Saintnuit
             </Link>
             <p className="body-large max-w-sm">
@@ -61,7 +40,7 @@ export default function Footer() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-sm text-[#e8e8e8]/60 hover:text-[#c9a96e] transition-colors duration-300 link-underline w-fit"
+                    className="text-sm text-[#e0ddd5]/50 hover:text-[#b8976a] transition-colors duration-300 link-underline w-fit"
                   >
                     {link.label}
                   </Link>
@@ -79,7 +58,7 @@ export default function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-[#e8e8e8]/60 hover:text-[#c9a96e] transition-colors duration-300 link-underline w-fit"
+                  className="text-sm text-[#e0ddd5]/50 hover:text-[#b8976a] transition-colors duration-300 link-underline w-fit"
                 >
                   {link.label}
                 </a>

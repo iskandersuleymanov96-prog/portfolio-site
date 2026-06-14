@@ -200,8 +200,8 @@ img {
 }
 
 .section-padding {
-  padding-top: clamp(5rem, 10vw, 9rem);
-  padding-bottom: clamp(5rem, 10vw, 9rem);
+  padding-top: clamp(4rem, 7vw, 6rem);
+  padding-bottom: clamp(4rem, 7vw, 6rem);
 }
 
 .editorial-heading {
@@ -276,12 +276,13 @@ img {
 
 .marquee-content .marquee-sep {
   display: inline-block;
-  width: 3px;
-  height: 3px;
+  width: 4px;
+  height: 4px;
   border-radius: 50%;
-  background: #c9a96e;
-  opacity: 0.3;
+  background: #b8976a;
+  opacity: 0.5;
   flex-shrink: 0;
+  margin: 0 24px;
 }
 
 @keyframes marquee {

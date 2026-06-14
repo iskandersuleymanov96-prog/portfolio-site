@@ -128,7 +128,7 @@ export default function Home() {
             <span className="text-[#c9a96e]">Projects</span>
           </SectionTitle>
 
-          <div className="mt-24">
+          <div className="mt-16">
             <FadeInUp>
               <Link href={`/portfolio/${featuredProjects[0].slug}`} className="group block">
                 <div className="relative overflow-hidden rounded-lg aspect-[21/9] md:aspect-[21/8]">
@@ -298,7 +298,7 @@ export default function Home() {
           <SectionLabel>Services</SectionLabel>
           <SectionTitle id="services-heading">What I Do</SectionTitle>
 
-          <div className="mt-24">
+          <div className="mt-16">
             {[
               { num: "01", title: "Creative Direction", desc: "Defining visual strategy for brands and cultural projects" },
               { num: "02", title: "AI Campaign Production", desc: "Creating imagery that transcends physical limitations" },
