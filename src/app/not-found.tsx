@@ -12,27 +12,27 @@ export default function NotFound() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-8xl md:text-9xl font-light tracking-[-0.04em] text-[#c9a96e]"
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="text-8xl md:text-9xl font-light tracking-[-0.04em] text-[#b8976a]"
           >
             404
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="mt-6 text-[#6b6b6b] text-lg"
+            transition={{ delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-6 text-[#6b6860] text-lg"
           >
             This page does not exist.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
             <Link
               href="/"
-              className="inline-flex items-center gap-3 mt-8 px-8 py-4 border border-[#c9a96e] text-[#c9a96e] text-[12px] tracking-[0.2em] uppercase hover:bg-[#c9a96e] hover:text-[#0a0a0a] transition-all duration-500"
+              className="inline-flex items-center gap-3 mt-8 px-8 py-4 border border-[#b8976a]/30 text-[#b8976a] text-[12px] tracking-[0.2em] uppercase hover:bg-[#b8976a]/10 hover:border-[#b8976a]/50 transition-all duration-500"
             >
               Return Home
             </Link>

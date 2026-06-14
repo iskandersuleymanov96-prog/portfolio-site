@@ -11,7 +11,7 @@ export default function PageTransitionOverlay() {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsLoading(true);
-    const timer = setTimeout(() => setIsLoading(false), 800);
+    const timer = setTimeout(() => setIsLoading(false), 700);
     return () => clearTimeout(timer);
   }, [pathname]);
 
@@ -22,8 +22,8 @@ export default function PageTransitionOverlay() {
           initial={{ scaleY: 0 }}
           animate={{ scaleY: 1 }}
           exit={{ scaleY: 0 }}
-          transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
-          className="fixed inset-0 z-[90] bg-[#050505] origin-top"
+          transition={{ duration: 0.5, ease: [0.77, 0, 0.175, 1] }}
+          className="fixed inset-0 z-[90] bg-[#080808] origin-top"
           aria-hidden="true"
         />
       )}

@@ -4,7 +4,6 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
-import PageTransitionOverlay from "@/components/PageTransitionOverlay";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -20,7 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#050505",
+  themeColor: "#060606",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -120,10 +119,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-[#050505] text-[#e8e8e8] antialiased min-h-screen">
+      <body className="bg-[#060606] text-[#e0ddd5] antialiased min-h-screen">
         <CustomCursor />
-        <PageTransitionOverlay />
-        <div className="grain-overlay" aria-hidden="true" />
         <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />

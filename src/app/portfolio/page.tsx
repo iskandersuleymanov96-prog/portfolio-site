@@ -27,7 +27,7 @@ export default function PortfolioPage() {
           <SectionTitle>
             Selected
             <br />
-            <span className="text-[#c9a96e]">Works</span>
+            <span className="text-[#b8976a]">Works</span>
           </SectionTitle>
         </div>
       </section>
@@ -48,8 +48,8 @@ export default function PortfolioPage() {
                 aria-selected={activeCategory === cat}
                 className={`px-6 py-3 rounded-full text-[11px] tracking-[0.15em] uppercase transition-all duration-500 border ${
                   activeCategory === cat
-                    ? "bg-[#c9a96e] text-[#050505] border-[#c9a96e]"
-                    : "bg-transparent text-[#5a5a5a] border-white/[0.08] hover:bg-white/[0.06] hover:text-[#e8e8e8] hover:border-white/[0.15]"
+                    ? "bg-[#b8976a] text-[#060606] border-[#b8976a]"
+                    : "bg-transparent text-[#6b6860] border-white/[0.08] hover:bg-white/[0.04] hover:text-[#e0ddd5] hover:border-white/[0.15]"
                 }`}
               >
                 {cat}
@@ -73,27 +73,25 @@ export default function PortfolioPage() {
                   <motion.div
                     key={project.slug}
                     layout
-                    initial={{ opacity: 0, scale: 0.95 }}
+                    initial={{ opacity: 0, scale: 0.97 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+                    exit={{ opacity: 0, scale: 0.97 }}
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                     className={colSpan}
                   >
                     <Link href={`/portfolio/${project.slug}`} className="group block">
-                      <div className="double-bezel">
-                        <div className="double-bezel-inner">
-                          <div className={`relative overflow-hidden ${aspectRatio}`}>
-                            <Image
-                              src={project.image}
-                              alt={project.title}
-                              fill
-                              className="object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700">
-                              <span className="eyebrow mb-2 inline-block">{project.category}</span>
-                              <h3 className="editorial-heading text-2xl md:text-3xl">{project.title}</h3>
-                            </div>
+                      <div className="luxury-card">
+                        <div className={`relative overflow-hidden ${aspectRatio}`}>
+                          <Image
+                            src={project.image}
+                            alt={project.title}
+                            fill
+                            className="object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#060606]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700">
+                            <span className="eyebrow mb-2 inline-block">{project.category}</span>
+                            <h3 className="editorial-heading text-2xl md:text-3xl">{project.title}</h3>
                           </div>
                         </div>
                       </div>
@@ -101,9 +99,9 @@ export default function PortfolioPage() {
                         <div className="flex justify-between items-start">
                           <div>
                             <h3 className="editorial-heading text-xl">{project.title}</h3>
-                            <p className="text-[#5a5a5a] text-sm mt-1">{project.description}</p>
+                            <p className="text-[#6b6860] text-sm mt-1">{project.description}</p>
                           </div>
-                          <span className="text-[10px] text-[#5a5a5a] tracking-wider font-mono shrink-0 ml-4">
+                          <span className="text-[10px] text-[#6b6860] tracking-wider font-mono shrink-0 ml-4">
                             {project.year}
                           </span>
                         </div>

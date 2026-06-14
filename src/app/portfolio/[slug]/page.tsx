@@ -21,7 +21,7 @@ export default function ProjectPage({
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
   const imageOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.6]);
   const titleY = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
@@ -37,7 +37,7 @@ export default function ProjectPage({
         <div className="max-w-[1400px] mx-auto">
           <Link
             href="/portfolio"
-            className="inline-flex items-center gap-2 text-[10px] tracking-[0.2em] uppercase text-[#5a5a5a] hover:text-[#c9a96e] transition-colors duration-300 mb-16 group"
+            className="inline-flex items-center gap-2 text-[10px] tracking-[0.2em] uppercase text-[#6b6860] hover:text-[#b8976a] transition-colors duration-300 mb-16 group"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -56,9 +56,9 @@ export default function ProjectPage({
           </Link>
 
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.32, 0.72, 0, 1] }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="eyebrow mb-6 inline-block">{project.category}</span>
             <motion.h1
@@ -67,7 +67,7 @@ export default function ProjectPage({
             >
               {project.title}
             </motion.h1>
-            <p className="text-lg text-[#5a5a5a] mt-8 max-w-xl">
+            <p className="text-lg text-[#6b6860] mt-8 max-w-xl">
               {project.description}
             </p>
           </motion.div>
@@ -78,25 +78,23 @@ export default function ProjectPage({
       <section className="px-6 md:px-12" ref={heroRef}>
         <div className="max-w-[1400px] mx-auto">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.32, 0.72, 0, 1] }}
-            className="double-bezel"
+            transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="luxury-card"
           >
-            <div className="double-bezel-inner">
-              <motion.div
-                style={{ scale: imageScale, opacity: imageOpacity }}
-                className="relative aspect-[16/9] overflow-hidden"
-              >
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </motion.div>
-            </div>
+            <motion.div
+              style={{ scale: imageScale, opacity: imageOpacity }}
+              className="relative aspect-[16/9] overflow-hidden"
+            >
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -105,10 +103,10 @@ export default function ProjectPage({
       <section className="section-padding px-6 md:px-12" aria-labelledby="project-details-heading">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           <FadeInUp className="lg:col-span-7">
-            <h2 id="project-details-heading" className="text-[10px] tracking-[0.2em] uppercase text-[#c9a96e] font-mono mb-8">
+            <h2 id="project-details-heading" className="text-[10px] tracking-[0.2em] uppercase text-[#b8976a] font-mono mb-8">
               About the Project
             </h2>
-            <p className="text-[#e8e8e8] leading-relaxed text-lg">
+            <p className="text-[#e0ddd5] leading-relaxed text-lg">
               {project.details}
             </p>
           </FadeInUp>
@@ -121,18 +119,18 @@ export default function ProjectPage({
                 { label: "Year", value: project.year },
               ].map((item) => (
                 <div key={item.label}>
-                  <span className="text-[10px] tracking-[0.2em] uppercase text-[#5a5a5a] font-mono block mb-2">
+                  <span className="text-[10px] tracking-[0.2em] uppercase text-[#6b6860] font-mono block mb-2">
                     {item.label}
                   </span>
-                  <span className="text-sm text-[#e8e8e8]">{item.value}</span>
+                  <span className="text-sm text-[#e0ddd5]">{item.value}</span>
                 </div>
               ))}
 
               <div>
-                <span className="text-[10px] tracking-[0.2em] uppercase text-[#5a5a5a] font-mono block mb-4">
+                <span className="text-[10px] tracking-[0.2em] uppercase text-[#6b6860] font-mono block mb-4">
                   Tags
                 </span>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
@@ -153,29 +151,27 @@ export default function ProjectPage({
       {/* Next Project */}
       <section className="section-padding px-6 md:px-12" aria-label="Next project">
         <div className="max-w-[1400px] mx-auto">
-          <p className="text-[10px] tracking-[0.2em] uppercase text-[#5a5a5a] font-mono mb-10">
+          <p className="text-[10px] tracking-[0.2em] uppercase text-[#6b6860] font-mono mb-10">
             Next Project
           </p>
           <Link
             href={`/portfolio/${nextProject.slug}`}
             className="group block"
           >
-            <div className="double-bezel">
-              <div className="double-bezel-inner">
-                <div className="relative aspect-[21/9] overflow-hidden">
-                  <Image
-                    src={nextProject.image}
-                    alt={nextProject.title}
-                    fill
-                    className="object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
-                  />
-                </div>
+            <div className="luxury-card">
+              <div className="relative aspect-[21/9] overflow-hidden">
+                <Image
+                  src={nextProject.image}
+                  alt={nextProject.title}
+                  fill
+                  className="object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                />
               </div>
             </div>
             <div className="mt-6 flex justify-between items-start px-1">
               <div>
                 <span className="eyebrow mb-3 inline-block">{nextProject.category}</span>
-                <h3 className="editorial-heading text-3xl md:text-4xl group-hover:text-[#c9a96e] transition-colors duration-500">
+                <h3 className="editorial-heading text-3xl md:text-4xl group-hover:text-[#b8976a] transition-colors duration-500">
                   {nextProject.title}
                 </h3>
               </div>
@@ -187,7 +183,7 @@ export default function ProjectPage({
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1"
-                className="text-[#5a5a5a] group-hover:text-[#c9a96e] transition-all duration-500 shrink-0 mt-4 group-hover:translate-x-1 group-hover:-translate-y-1"
+                className="text-[#6b6860] group-hover:text-[#b8976a] transition-all duration-500 shrink-0 mt-4 group-hover:translate-x-1 group-hover:-translate-y-1"
                 aria-hidden="true"
               >
                 <path d="M7 17L17 7M17 7H7M17 7V17" />

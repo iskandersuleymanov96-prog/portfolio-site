@@ -33,7 +33,7 @@ export default function AboutPage() {
           <SectionTitle>
             The practice behind
             <br />
-            <span className="text-[#c9a96e]">the vision</span>
+            <span className="text-[#b8976a]">the vision</span>
           </SectionTitle>
         </div>
       </section>
@@ -44,7 +44,7 @@ export default function AboutPage() {
           <div className="marquee-content">
             {[...skills, ...skills].map((skill, i) => (
               <span key={`b-${i}`} className="flex items-center">
-                <span className="text-[11px] tracking-[0.2em] uppercase text-[#5a5a5a]">
+                <span className="text-[11px] tracking-[0.2em] uppercase text-[#6b6860]">
                   {skill}
                 </span>
                 <span className="marquee-sep mx-8" />
@@ -58,34 +58,32 @@ export default function AboutPage() {
       <section className="pb-24 px-6 md:px-12" aria-labelledby="bio-heading">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           <FadeInUp className="lg:col-span-5">
-            <div ref={portraitRef} className="double-bezel">
-              <div className="double-bezel-inner">
-                <motion.div style={{ y: portraitY }} className="relative aspect-[3/4] overflow-hidden">
-                  <Image
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
-                    alt="Saintnuit portrait"
-                    fill
-                    className="object-cover"
-                  />
-                </motion.div>
-              </div>
+            <div ref={portraitRef} className="luxury-card">
+              <motion.div style={{ y: portraitY }} className="relative aspect-[3/4] overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
+                  alt="Saintnuit portrait"
+                  fill
+                  className="object-cover"
+                />
+              </motion.div>
             </div>
           </FadeInUp>
 
           <FadeInUp delay={0.2} className="lg:col-span-7 flex flex-col justify-center">
             <h2 id="bio-heading" className="sr-only">Biography</h2>
-            <p className="editorial-heading text-2xl md:text-3xl leading-snug text-[#e8e8e8]">
+            <p className="editorial-heading text-2xl md:text-3xl leading-snug text-[#e0ddd5]">
               Saintnuit is a multidisciplinary creative practice operating at
               the intersection of film, fashion, and artificial intelligence.
             </p>
-            <p className="mt-8 text-[#5a5a5a] leading-relaxed max-w-lg">
+            <p className="mt-8 text-[#6b6860] leading-relaxed max-w-lg">
               Founded on the belief that technology should amplify — not
               replace — human creative vision. With a background in visual arts
               and a deep engagement with emerging technologies, the studio has
               produced campaigns for luxury houses, directed experimental films,
               and exhibited at international art institutions.
             </p>
-            <p className="mt-6 text-[#5a5a5a] leading-relaxed max-w-lg">
+            <p className="mt-6 text-[#6b6860] leading-relaxed max-w-lg">
               Every project begins with a question: how do we make something
               that feels inevitable? The answer always lies in the tension
               between technology and intuition, between the algorithm and the
@@ -128,10 +126,10 @@ export default function AboutPage() {
             ].map((item, i) => (
               <FadeInUp key={item.title} delay={i * 0.12} className={`md:col-span-4 ${i === 1 ? "md:col-start-5" : ""} ${i === 2 ? "md:col-start-9" : ""}`}>
                 <div className="group">
-                  <span className="text-[10px] text-[#c9a96e] tracking-[0.2em] font-mono">{item.num}</span>
-                  <div className="w-12 h-[1px] bg-white/10 my-6 group-hover:w-20 group-hover:bg-[#c9a96e]/40 transition-all duration-700" aria-hidden="true" />
+                  <span className="text-[10px] text-[#b8976a] tracking-[0.2em] font-mono">{item.num}</span>
+                  <div className="w-12 h-[1px] bg-white/[0.08] my-6 group-hover:w-20 group-hover:bg-[#b8976a]/30 transition-all duration-700" aria-hidden="true" />
                   <h3 className="editorial-heading text-2xl mb-4">{item.title}</h3>
-                  <p className="text-sm text-[#5a5a5a] leading-relaxed">
+                  <p className="text-sm text-[#6b6860] leading-relaxed">
                     {item.text}
                   </p>
                 </div>
@@ -143,7 +141,7 @@ export default function AboutPage() {
 
       <Divider />
 
-      {/* Services — Double Bezel Grid */}
+      {/* Services — Card Grid */}
       <section className="section-padding px-6 md:px-12" aria-labelledby="services-heading">
         <div className="max-w-[1400px] mx-auto">
           <SectionLabel>Services</SectionLabel>
@@ -152,15 +150,15 @@ export default function AboutPage() {
           <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((service, i) => (
               <FadeInUp key={service.title} delay={i * 0.08}>
-                <div className="double-bezel group hover:shadow-[0_0_40px_rgba(201,169,110,0.05)] transition-shadow duration-700">
-                  <div className="double-bezel-inner p-8 md:p-10">
-                    <span className="text-[10px] text-[#5a5a5a] tracking-[0.2em] font-mono">
+                <div className="luxury-card group">
+                  <div className="p-8 md:p-10">
+                    <span className="text-[10px] text-[#6b6860] tracking-[0.2em] font-mono">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="editorial-heading text-2xl mt-4 mb-3 group-hover:text-[#c9a96e] transition-colors duration-500">
+                    <h3 className="editorial-heading text-2xl mt-4 mb-3 group-hover:text-[#b8976a] transition-colors duration-500">
                       {service.title}
                     </h3>
-                    <p className="text-sm text-[#5a5a5a] leading-relaxed">
+                    <p className="text-sm text-[#6b6860] leading-relaxed">
                       {service.description}
                     </p>
                   </div>
@@ -182,11 +180,11 @@ export default function AboutPage() {
           <div className="mt-20 space-y-0">
             {timeline.map((item, i) => (
               <FadeInUp key={item.year} delay={i * 0.08}>
-                <div className="py-8 border-b border-white/[0.06] flex items-center gap-8 group hover:border-[#c9a96e]/20 transition-colors duration-700">
-                  <span className="text-sm text-[#5a5a5a] tracking-wider font-mono w-20 shrink-0">
+                <div className="py-8 border-b border-white/[0.05] flex items-center gap-8 group hover:border-[#b8976a]/20 transition-colors duration-700">
+                  <span className="text-sm text-[#6b6860] tracking-wider font-mono w-20 shrink-0">
                     {item.year}
                   </span>
-                  <span className="editorial-heading text-xl md:text-2xl group-hover:text-[#c9a96e] transition-colors duration-500">
+                  <span className="editorial-heading text-xl md:text-2xl group-hover:text-[#b8976a] transition-colors duration-500">
                     {item.event}
                   </span>
                 </div>

@@ -20,45 +20,50 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/[0.04] bg-[#050505]" role="contentinfo">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-20">
-        {/* Large editorial CTA */}
-        <div className="mb-20">
+    <footer className="border-t border-white/[0.04] bg-[#080808]" role="contentinfo">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+        {/* Cinematic CTA — fashion film credits style */}
+        <div className="pt-24 pb-20">
           <Link href="/contact" className="group block">
-            <motion.h2
-              whileHover={{ x: 10 }}
-              transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
-              className="editorial-heading text-6xl md:text-8xl lg:text-9xl"
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, ease: [0.32, 0.72, 0, 1] }}
             >
-              Let&apos;s work
-              <br />
-              <span className="text-[#c9a96e]">together</span>
-            </motion.h2>
+              <span className="label-tiny text-[#c9a96e] mb-6 block">Get in Touch</span>
+              <h2 className="heading-giant text-[#e8e8e8] group-hover:text-[#c9a96e] transition-colors duration-700">
+                Let&apos;s
+                <br />
+                <span className="text-stroke-white">work</span>
+                <br />
+                together
+              </h2>
+            </motion.div>
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+        {/* Footer info grid */}
+        <div className="py-16 border-t border-white/[0.04] grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
-            <Link href="/" className="editorial-heading text-3xl block mb-6">
+            <Link href="/" className="heading-section block mb-6 text-[#e8e8e8]">
               Saintnuit
             </Link>
-            <p className="text-[#5a5a5a] text-sm leading-relaxed max-w-sm">
+            <p className="body-large max-w-sm">
               Creative Director & AI Filmmaker. Crafting visual experiences
               at the intersection of technology and aesthetics.
             </p>
           </div>
 
           <div className="md:col-span-3">
-            <h4 className="text-[10px] tracking-[0.2em] uppercase text-[#5a5a5a] mb-6">
-              Navigation
-            </h4>
+            <h4 className="label-tiny mb-8">Navigation</h4>
             <nav aria-label="Footer navigation">
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-4">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-sm text-[#e8e8e8]/70 hover:text-[#c9a96e] transition-colors duration-300 link-underline w-fit"
+                    className="text-sm text-[#e8e8e8]/60 hover:text-[#c9a96e] transition-colors duration-300 link-underline w-fit"
                   >
                     {link.label}
                   </Link>
@@ -68,17 +73,15 @@ export default function Footer() {
           </div>
 
           <div className="md:col-span-4">
-            <h4 className="text-[10px] tracking-[0.2em] uppercase text-[#5a5a5a] mb-6">
-              Connect
-            </h4>
-            <div className="flex flex-col gap-3">
+            <h4 className="label-tiny mb-8">Connect</h4>
+            <div className="flex flex-col gap-4">
               {socialLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-[#e8e8e8]/70 hover:text-[#c9a96e] transition-colors duration-300 link-underline w-fit"
+                  className="text-sm text-[#e8e8e8]/60 hover:text-[#c9a96e] transition-colors duration-300 link-underline w-fit"
                 >
                   {link.label}
                 </a>
@@ -87,11 +90,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 pt-8 border-t border-white/[0.04] flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[10px] text-[#5a5a5a] tracking-wider font-mono">
+        {/* Bottom bar */}
+        <div className="py-8 border-t border-white/[0.04] flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-[10px] text-[#444] tracking-wider font-mono">
             &copy; {currentYear} Saintnuit. All rights reserved.
           </p>
-          <p className="text-[10px] text-[#5a5a5a] tracking-wider font-mono">
+          <p className="text-[10px] text-[#444] tracking-wider font-mono">
             All work &copy; respective clients
           </p>
         </div>
