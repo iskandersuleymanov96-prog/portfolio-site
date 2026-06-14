@@ -4,7 +4,7 @@ import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import PageTransition, { SectionLabel, SectionTitle } from "@/components/PageTransition";
+import PageTransition, { SectionLabel, SectionTitle, ImageScaleReveal } from "@/components/PageTransition";
 import { projects, categories } from "@/lib/data";
 
 export default function PortfolioPage() {
@@ -21,22 +21,21 @@ export default function PortfolioPage() {
 
   return (
     <PageTransition>
-      <section className="pt-40 pb-20 px-6 md:px-12">
+      <section className="pt-40 pb-20 px-6 md:px-12 lg:px-16">
         <div className="max-w-[1400px] mx-auto">
           <SectionLabel>Portfolio</SectionLabel>
           <SectionTitle>
             Selected
             <br />
-            <span className="text-[#b8976a]">Works</span>
+            <span className="text-[#c9a96e]">Works</span>
           </SectionTitle>
         </div>
       </section>
 
-      {/* Filters */}
-      <section className="px-6 md:px-12">
+      <section className="px-6 md:px-12 lg:px-16">
         <div className="max-w-[1400px] mx-auto">
           <div
-            className="flex flex-wrap gap-3 mb-20"
+            className="flex flex-wrap gap-6 mb-24"
             role="tablist"
             aria-label="Filter projects by category"
           >
@@ -46,10 +45,10 @@ export default function PortfolioPage() {
                 onClick={() => handleCategoryChange(cat)}
                 role="tab"
                 aria-selected={activeCategory === cat}
-                className={`px-6 py-3 rounded-full text-[11px] tracking-[0.15em] uppercase transition-all duration-500 border ${
+                className={`label-tiny transition-all duration-500 pb-1 border-b ${
                   activeCategory === cat
-                    ? "bg-[#b8976a] text-[#060606] border-[#b8976a]"
-                    : "bg-transparent text-[#6b6860] border-white/[0.08] hover:bg-white/[0.04] hover:text-[#e0ddd5] hover:border-white/[0.15]"
+                    ? "text-[#c9a96e] border-[#c9a96e]/40"
+                    : "text-[#555] border-transparent hover:text-[#e8e8e8] hover:border-white/10"
                 }`}
               >
                 {cat}
@@ -59,10 +58,9 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* Masonry-style Grid */}
-      <section className="px-6 md:px-12 pb-32" aria-label="Projects">
+      <section className="px-6 md:px-12 lg:px-16 pb-32" aria-label="Projects">
         <div className="max-w-[1400px] mx-auto">
-          <motion.div layout className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
+          <motion.div layout className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
             <AnimatePresence mode="popLayout">
               {filtered.map((project, i) => {
                 const isLarge = i === 0;
@@ -76,32 +74,34 @@ export default function PortfolioPage() {
                     initial={{ opacity: 0, scale: 0.97 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.97 }}
-                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
                     className={colSpan}
                   >
                     <Link href={`/portfolio/${project.slug}`} className="group block">
-                      <div className="luxury-card">
-                        <div className={`relative overflow-hidden ${aspectRatio}`}>
-                          <Image
-                            src={project.image}
-                            alt={project.title}
-                            fill
-                            className="object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-[#060606]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                      <div className="relative overflow-hidden rounded-lg">
+                        <div className={`${aspectRatio} relative overflow-hidden`}>
+                          <ImageScaleReveal className="absolute inset-0">
+                            <Image
+                              src={project.image}
+                              alt={project.title}
+                              fill
+                              className="object-cover transition-transform duration-[1.6s] ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
+                            />
+                          </ImageScaleReveal>
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                           <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700">
                             <span className="eyebrow mb-2 inline-block">{project.category}</span>
-                            <h3 className="editorial-heading text-2xl md:text-3xl">{project.title}</h3>
+                            <h3 className="heading-section text-[#e8e8e8]">{project.title}</h3>
                           </div>
                         </div>
                       </div>
-                      <div className="mt-4 px-1">
+                      <div className="mt-5 px-1">
                         <div className="flex justify-between items-start">
                           <div>
-                            <h3 className="editorial-heading text-xl">{project.title}</h3>
-                            <p className="text-[#6b6860] text-sm mt-1">{project.description}</p>
+                            <h3 className="heading-section text-xl group-hover:text-[#c9a96e] transition-colors duration-500">{project.title}</h3>
+                            <p className="text-[#666] text-sm mt-2">{project.description}</p>
                           </div>
-                          <span className="text-[10px] text-[#6b6860] tracking-wider font-mono shrink-0 ml-4">
+                          <span className="text-[10px] text-[#444] tracking-wider font-mono shrink-0 ml-4 mt-1">
                             {project.year}
                           </span>
                         </div>

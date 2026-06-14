@@ -3,7 +3,6 @@ import { Cormorant_Garamond, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import CustomCursor from "@/components/CustomCursor";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -120,7 +119,6 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-[#060606] text-[#e0ddd5] antialiased min-h-screen">
-        <CustomCursor />
         <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />

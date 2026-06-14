@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
-import PageTransition, { SectionLabel, SectionTitle, FadeInUp } from "@/components/PageTransition";
+import PageTransition, { SectionLabel, SectionTitle, FadeInUp, HorizontalSlideIn } from "@/components/PageTransition";
 
 const contactLinks = [
   { label: "Instagram", href: "https://instagram.com/saintnuit", value: "@saintnuit" },
@@ -50,23 +50,22 @@ export default function ContactPage() {
 
   return (
     <PageTransition>
-      <section className="pt-40 pb-20 px-6 md:px-12">
+      <section className="pt-40 pb-20 px-6 md:px-12 lg:px-16">
         <div className="max-w-[1400px] mx-auto">
           <SectionLabel>Contact</SectionLabel>
           <SectionTitle>
             Get in
             <br />
-            <span className="text-[#b8976a]">Touch</span>
+            <span className="text-[#c9a96e]">Touch</span>
           </SectionTitle>
-          <p className="mt-8 text-[#6b6860] max-w-lg">
+          <p className="mt-8 body-large max-w-lg">
             Open for collaborations, commissions, and new projects. Let&apos;s
             create something meaningful together.
           </p>
         </div>
       </section>
 
-      {/* Large editorial email */}
-      <section className="px-6 md:px-12 pb-20">
+      <section className="px-6 md:px-12 lg:px-16 pb-20">
         <div className="max-w-[1400px] mx-auto">
           <FadeInUp>
             <a
@@ -75,8 +74,8 @@ export default function ContactPage() {
             >
               <motion.h2
                 whileHover={{ x: 10 }}
-                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="editorial-heading text-4xl md:text-6xl lg:text-7xl"
+                transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
+                className="heading-display"
               >
                 hello@saintnuit.com
               </motion.h2>
@@ -85,11 +84,10 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="px-6 md:px-12 pb-32">
+      <section className="px-6 md:px-12 lg:px-16 pb-32">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
-          {/* Contact Links */}
-          <FadeInUp className="lg:col-span-5">
-            <h3 className="text-[10px] tracking-[0.2em] uppercase text-[#b8976a] font-mono mb-10">
+          <HorizontalSlideIn className="lg:col-span-5">
+            <h3 className="label-tiny text-[#c9a96e] mb-12">
               Connect
             </h3>
 
@@ -100,17 +98,17 @@ export default function ContactPage() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 15 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                  className="flex items-center justify-between py-8 border-b border-white/[0.05] group hover:border-[#b8976a]/20 transition-colors duration-700"
+                  transition={{ delay: i * 0.1, ease: [0.32, 0.72, 0, 1] }}
+                  className="flex items-center justify-between py-8 service-row group"
                 >
                   <div>
-                    <span className="text-[10px] tracking-[0.2em] uppercase text-[#6b6860] font-mono block mb-2">
+                    <span className="label-tiny text-[#555] block mb-2">
                       {link.label}
                     </span>
-                    <span className="editorial-heading text-xl group-hover:text-[#b8976a] transition-colors duration-500">
+                    <span className="heading-section group-hover:text-[#c9a96e] transition-colors duration-500">
                       {link.value}
                     </span>
                   </div>
@@ -122,7 +120,7 @@ export default function ContactPage() {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1"
-                    className="text-[#6b6860] group-hover:text-[#b8976a] transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
+                    className="text-[#555] group-hover:text-[#c9a96e] transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
                     aria-hidden="true"
                   >
                     <path d="M7 17L17 7M17 7H7M17 7V17" />
@@ -131,11 +129,11 @@ export default function ContactPage() {
               ))}
             </div>
 
-            <div className="mt-14">
-              <h3 className="text-[10px] tracking-[0.2em] uppercase text-[#b8976a] font-mono mb-5">
+            <div className="mt-16">
+              <h3 className="label-tiny text-[#c9a96e] mb-6">
                 Available For
               </h3>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2">
                 {availableServices.map((service) => (
                   <span key={service} className="eyebrow">
                     {service}
@@ -143,17 +141,16 @@ export default function ContactPage() {
                 ))}
               </div>
             </div>
-          </FadeInUp>
+          </HorizontalSlideIn>
 
-          {/* Contact Form */}
           <FadeInUp delay={0.2} className="lg:col-span-7">
-            <h3 className="text-[10px] tracking-[0.2em] uppercase text-[#b8976a] font-mono mb-10">
+            <h3 className="label-tiny text-[#c9a96e] mb-12">
               Send a Message
             </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-10" noValidate>
+            <form onSubmit={handleSubmit} className="space-y-12" noValidate>
               <div>
-                <label htmlFor="name" className="text-[10px] tracking-[0.2em] uppercase text-[#6b6860] font-mono block mb-4">
+                <label htmlFor="name" className="label-tiny block mb-4 text-[#555]">
                   Name
                 </label>
                 <input
@@ -163,14 +160,14 @@ export default function ContactPage() {
                   required
                   value={formState.name}
                   onChange={handleChange}
-                  className="w-full bg-transparent border-b border-white/[0.08] py-4 text-[#e0ddd5] focus:border-[#b8976a] outline-none transition-colors duration-500 placeholder:text-[#333]"
+                  className="w-full bg-transparent border-b border-white/[0.06] py-4 text-[#e8e8e8] focus:border-[#c9a96e] outline-none transition-colors duration-500 placeholder:text-[#333]"
                   placeholder="Your name"
                   aria-required="true"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="text-[10px] tracking-[0.2em] uppercase text-[#6b6860] font-mono block mb-4">
+                <label htmlFor="email" className="label-tiny block mb-4 text-[#555]">
                   Email
                 </label>
                 <input
@@ -180,14 +177,14 @@ export default function ContactPage() {
                   required
                   value={formState.email}
                   onChange={handleChange}
-                  className="w-full bg-transparent border-b border-white/[0.08] py-4 text-[#e0ddd5] focus:border-[#b8976a] outline-none transition-colors duration-500 placeholder:text-[#333]"
+                  className="w-full bg-transparent border-b border-white/[0.06] py-4 text-[#e8e8e8] focus:border-[#c9a96e] outline-none transition-colors duration-500 placeholder:text-[#333]"
                   placeholder="your@email.com"
                   aria-required="true"
                 />
               </div>
 
               <div>
-                <label htmlFor="project" className="text-[10px] tracking-[0.2em] uppercase text-[#6b6860] font-mono block mb-4">
+                <label htmlFor="project" className="label-tiny block mb-4 text-[#555]">
                   Project Type
                 </label>
                 <select
@@ -195,31 +192,31 @@ export default function ContactPage() {
                   name="project"
                   value={formState.project}
                   onChange={handleChange}
-                  className="w-full bg-transparent border-b border-white/[0.08] py-4 text-[#e0ddd5] focus:border-[#b8976a] outline-none transition-colors duration-500 appearance-none cursor-pointer"
+                  className="w-full bg-transparent border-b border-white/[0.06] py-4 text-[#e8e8e8] focus:border-[#c9a96e] outline-none transition-colors duration-500 appearance-none cursor-pointer"
                 >
-                  <option value="" className="bg-[#060606]">
+                  <option value="" className="bg-[#080808]">
                     Select a project type
                   </option>
-                  <option value="campaign" className="bg-[#060606]">
+                  <option value="campaign" className="bg-[#080808]">
                     AI Campaign
                   </option>
-                  <option value="film" className="bg-[#060606]">
+                  <option value="film" className="bg-[#080808]">
                     Film Production
                   </option>
-                  <option value="identity" className="bg-[#060606]">
+                  <option value="identity" className="bg-[#080808]">
                     Visual Identity
                   </option>
-                  <option value="art-direction" className="bg-[#060606]">
+                  <option value="art-direction" className="bg-[#080808]">
                     Art Direction
                   </option>
-                  <option value="other" className="bg-[#060606]">
+                  <option value="other" className="bg-[#080808]">
                     Other
                   </option>
                 </select>
               </div>
 
               <div>
-                <label htmlFor="message" className="text-[10px] tracking-[0.2em] uppercase text-[#6b6860] font-mono block mb-4">
+                <label htmlFor="message" className="label-tiny block mb-4 text-[#555]">
                   Message
                 </label>
                 <textarea
@@ -229,7 +226,7 @@ export default function ContactPage() {
                   value={formState.message}
                   onChange={handleChange}
                   rows={5}
-                  className="w-full bg-transparent border-b border-white/[0.08] py-4 text-[#e0ddd5] focus:border-[#b8976a] outline-none transition-colors duration-500 resize-none placeholder:text-[#333]"
+                  className="w-full bg-transparent border-b border-white/[0.06] py-4 text-[#e8e8e8] focus:border-[#c9a96e] outline-none transition-colors duration-500 resize-none placeholder:text-[#333]"
                   placeholder="Tell me about your project..."
                   aria-required="true"
                 />
@@ -239,9 +236,14 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="luxury-btn disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="magnetic-btn disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
+                  <span className="btn-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                  </span>
                 </button>
               </div>
 
@@ -249,7 +251,7 @@ export default function ContactPage() {
                 <motion.p
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-[#b8976a] text-sm"
+                  className="text-[#c9a96e] text-sm"
                 >
                   Thank you for your message. I will get back to you soon.
                 </motion.p>
