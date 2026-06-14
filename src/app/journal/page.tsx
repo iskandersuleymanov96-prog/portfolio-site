@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import PageTransition, { SectionLabel, SectionTitle, FadeInUp } from "@/components/PageTransition";
+import PageTransition, { SectionLabel, SectionTitle } from "@/components/PageTransition";
 import { journalEntries } from "@/lib/data";
 
 const journalCategories = ["All", "Visual Culture", "Art", "Fashion", "Music", "Visual Research"];

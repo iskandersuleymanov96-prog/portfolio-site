@@ -16,11 +16,6 @@ export default function ProjectPage({
   const { slug } = use(params);
   const project = projects.find((p) => p.slug === slug);
 
-  if (!project) return notFound();
-
-  const currentIndex = projects.findIndex((p) => p.slug === slug);
-  const nextProject = projects[(currentIndex + 1) % projects.length];
-
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -28,6 +23,12 @@ export default function ProjectPage({
   });
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
   const imageOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.6]);
+  const titleY = useTransform(scrollYProgress, [0, 1], [0, -50]);
+
+  if (!project) return notFound();
+
+  const currentIndex = projects.findIndex((p) => p.slug === slug);
+  const nextProject = projects[(currentIndex + 1) % projects.length];
 
   return (
     <PageTransition>
@@ -60,9 +61,12 @@ export default function ProjectPage({
             transition={{ duration: 1, ease: [0.32, 0.72, 0, 1] }}
           >
             <span className="eyebrow mb-6 inline-block">{project.category}</span>
-            <h1 className="editorial-heading text-6xl md:text-8xl lg:text-9xl mt-4">
+            <motion.h1
+              style={{ y: titleY }}
+              className="editorial-heading text-6xl md:text-8xl lg:text-9xl mt-4"
+            >
               {project.title}
-            </h1>
+            </motion.h1>
             <p className="text-lg text-[#5a5a5a] mt-8 max-w-xl">
               {project.description}
             </p>

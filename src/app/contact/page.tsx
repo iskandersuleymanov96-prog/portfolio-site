@@ -65,6 +65,26 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Large editorial email */}
+      <section className="px-6 md:px-12 pb-20">
+        <div className="max-w-[1400px] mx-auto">
+          <FadeInUp>
+            <a
+              href="mailto:hello@saintnuit.com"
+              className="group block"
+            >
+              <motion.h2
+                whileHover={{ x: 10 }}
+                transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
+                className="editorial-heading text-4xl md:text-6xl lg:text-7xl"
+              >
+                hello@saintnuit.com
+              </motion.h2>
+            </a>
+          </FadeInUp>
+        </div>
+      </section>
+
       <section className="px-6 md:px-12 pb-32">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
           {/* Contact Links */}

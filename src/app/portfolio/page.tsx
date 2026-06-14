@@ -4,7 +4,7 @@ import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import PageTransition, { SectionLabel, SectionTitle, FadeInUp } from "@/components/PageTransition";
+import PageTransition, { SectionLabel, SectionTitle } from "@/components/PageTransition";
 import { projects, categories } from "@/lib/data";
 
 export default function PortfolioPage() {

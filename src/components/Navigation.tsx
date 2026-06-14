@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -17,6 +17,8 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const { scrollYProgress } = useScroll();
+  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   const handleScroll = useCallback(() => {
     setScrolled(window.scrollY > 100);
@@ -28,6 +30,7 @@ export default function Navigation() {
   }, [handleScroll]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsOpen(false);
   }, [pathname]);
 
@@ -44,6 +47,12 @@ export default function Navigation() {
 
   return (
     <>
+      {/* Scroll progress bar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-[1px] bg-[#c9a96e]/60 z-[60] origin-left"
+        style={{ scaleX }}
+      />
+
       {/* Floating glass pill nav */}
       <motion.div
         initial={{ opacity: 0, y: -30 }}

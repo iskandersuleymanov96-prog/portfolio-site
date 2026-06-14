@@ -14,6 +14,8 @@ const timeline = [
   { year: "2020", event: "Released first experimental film" },
 ];
 
+const skills = ["Creative Direction", "AI Filmmaking", "Visual Identity", "Art Direction", "Fashion Film", "Music", "Visual Research", "Installation"];
+
 export default function AboutPage() {
   const portraitRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -33,6 +35,22 @@ export default function AboutPage() {
             <br />
             <span className="text-[#c9a96e]">the vision</span>
           </SectionTitle>
+        </div>
+      </section>
+
+      {/* Skills Marquee */}
+      <section className="pb-20 overflow-hidden">
+        <div className="marquee">
+          <div className="marquee-content">
+            {[...skills, ...skills].map((skill, i) => (
+              <span
+                key={`${skill}-${i}`}
+                className="text-[11px] tracking-[0.2em] uppercase text-[#5a5a5a] mx-8"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 

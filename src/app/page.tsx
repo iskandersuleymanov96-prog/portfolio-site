@@ -76,19 +76,20 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 3 }}
-            className="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2"
+            className="mt-10 overflow-hidden"
           >
-            {roles.map((role, i) => (
-              <motion.span
-                key={role}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 3.2 + i * 0.08 }}
-                className="text-[10px] tracking-[0.25em] uppercase text-[#5a5a5a]"
-              >
-                {role}
-              </motion.span>
-            ))}
+            <div className="marquee">
+              <div className="marquee-content">
+                {[...roles, ...roles].map((role, i) => (
+                  <span
+                    key={`${role}-${i}`}
+                    className="text-[10px] tracking-[0.25em] uppercase text-[#5a5a5a] mx-6"
+                  >
+                    {role}
+                  </span>
+                ))}
+              </div>
+            </div>
           </motion.div>
         </div>
 

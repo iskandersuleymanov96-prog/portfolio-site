@@ -22,6 +22,21 @@ export default function Footer() {
   return (
     <footer className="border-t border-white/[0.04] bg-[#050505]" role="contentinfo">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-20">
+        {/* Large editorial CTA */}
+        <div className="mb-20">
+          <Link href="/contact" className="group block">
+            <motion.h2
+              whileHover={{ x: 10 }}
+              transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
+              className="editorial-heading text-6xl md:text-8xl lg:text-9xl"
+            >
+              Let&apos;s work
+              <br />
+              <span className="text-[#c9a96e]">together</span>
+            </motion.h2>
+          </Link>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
             <Link href="/" className="editorial-heading text-3xl block mb-6">

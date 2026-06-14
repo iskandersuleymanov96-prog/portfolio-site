@@ -3,6 +3,8 @@ import { Cormorant_Garamond, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import CustomCursor from "@/components/CustomCursor";
+import PageTransitionOverlay from "@/components/PageTransitionOverlay";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -117,6 +119,8 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-[#050505] text-[#e8e8e8] antialiased min-h-screen">
+        <CustomCursor />
+        <PageTransitionOverlay />
         <div className="grain-overlay" aria-hidden="true" />
         <Navigation />
         <main className="flex-1">{children}</main>
