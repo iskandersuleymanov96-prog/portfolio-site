@@ -160,8 +160,8 @@ img {
 
 /* Section spacing */
 .section-padding {
-  padding-top: clamp(6rem, 12vw, 10rem);
-  padding-bottom: clamp(6rem, 12vw, 10rem);
+  padding-top: clamp(4rem, 8vw, 7rem);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
 }
 
 /* Editorial heading */
@@ -258,16 +258,37 @@ html {
 .marquee {
   overflow: hidden;
   white-space: nowrap;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .marquee-content {
   display: inline-flex;
-  animation: marquee 30s linear infinite;
+  align-items: center;
+  flex-wrap: nowrap;
+  animation: marquee 40s linear infinite;
+  width: max-content;
+}
+
+.marquee-content .marquee-sep {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #c9a96e;
+  opacity: 0.4;
+  flex-shrink: 0;
 }
 
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-content {
+    animation: none;
+  }
 }
 
 /* Page transition overlay */

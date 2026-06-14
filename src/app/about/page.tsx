@@ -43,11 +43,11 @@ export default function AboutPage() {
         <div className="marquee">
           <div className="marquee-content">
             {[...skills, ...skills].map((skill, i) => (
-              <span
-                key={`${skill}-${i}`}
-                className="text-[11px] tracking-[0.2em] uppercase text-[#5a5a5a] mx-8"
-              >
-                {skill}
+              <span key={`b-${i}`} className="flex items-center">
+                <span className="text-[11px] tracking-[0.2em] uppercase text-[#5a5a5a]">
+                  {skill}
+                </span>
+                <span className="marquee-sep mx-8" />
               </span>
             ))}
           </div>

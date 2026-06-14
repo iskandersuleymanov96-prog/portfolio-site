@@ -46,10 +46,10 @@ export default function PortfolioPage() {
                 onClick={() => handleCategoryChange(cat)}
                 role="tab"
                 aria-selected={activeCategory === cat}
-                className={`px-5 py-2.5 rounded-full text-[10px] tracking-[0.2em] uppercase transition-all duration-500 ${
+                className={`px-6 py-3 rounded-full text-[11px] tracking-[0.15em] uppercase transition-all duration-500 border ${
                   activeCategory === cat
-                    ? "bg-[#c9a96e] text-[#050505]"
-                    : "bg-white/[0.04] text-[#5a5a5a] hover:bg-white/[0.08] hover:text-[#e8e8e8]"
+                    ? "bg-[#c9a96e] text-[#050505] border-[#c9a96e]"
+                    : "bg-transparent text-[#5a5a5a] border-white/[0.08] hover:bg-white/[0.06] hover:text-[#e8e8e8] hover:border-white/[0.15]"
                 }`}
               >
                 {cat}

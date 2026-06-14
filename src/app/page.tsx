@@ -81,11 +81,11 @@ export default function Home() {
             <div className="marquee">
               <div className="marquee-content">
                 {[...roles, ...roles].map((role, i) => (
-                  <span
-                    key={`${role}-${i}`}
-                    className="text-[10px] tracking-[0.25em] uppercase text-[#5a5a5a] mx-6"
-                  >
-                    {role}
+                  <span key={`a-${i}`} className="flex items-center">
+                    <span className="text-[10px] tracking-[0.25em] uppercase text-[#5a5a5a]">
+                      {role}
+                    </span>
+                    <span className="marquee-sep mx-6" />
                   </span>
                 ))}
               </div>
@@ -110,7 +110,7 @@ export default function Home() {
       </section>
 
       {/* Selected Works — Asymmetric Bento */}
-      <section className="section-padding px-6 md:px-12" aria-labelledby="works-heading">
+      <section className="section-padding px-6 md:px-12 lg:px-20" aria-labelledby="works-heading">
         <div className="max-w-[1400px] mx-auto">
           <SectionLabel>Selected Works</SectionLabel>
           <SectionTitle id="works-heading">
@@ -216,7 +216,7 @@ export default function Home() {
       <Divider />
 
       {/* About Preview — Editorial Split */}
-      <section className="section-padding px-6 md:px-12" aria-labelledby="about-heading">
+      <section className="section-padding px-6 md:px-12 lg:px-20" aria-labelledby="about-heading">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           <FadeInUp className="lg:col-span-5">
             <SectionLabel>About</SectionLabel>
@@ -262,7 +262,7 @@ export default function Home() {
       <Divider />
 
       {/* Services — Editorial List */}
-      <section className="section-padding px-6 md:px-12" aria-labelledby="services-heading">
+      <section className="section-padding px-6 md:px-12 lg:px-20" aria-labelledby="services-heading">
         <div className="max-w-[1400px] mx-auto">
           <SectionLabel>Services</SectionLabel>
           <SectionTitle id="services-heading">What I Do</SectionTitle>
@@ -312,7 +312,7 @@ export default function Home() {
       <Divider />
 
       {/* CTA */}
-      <section className="section-padding px-6 md:px-12" aria-labelledby="cta-heading">
+      <section className="section-padding px-6 md:px-12 lg:px-20" aria-labelledby="cta-heading">
         <div className="max-w-[1400px] mx-auto text-center">
           <FadeInUp>
             <SectionLabel>Get in Touch</SectionLabel>

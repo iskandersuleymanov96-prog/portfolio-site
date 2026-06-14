@@ -38,7 +38,7 @@ export const projects: Project[] = [
     category: "Fashion Films",
     description: "A fashion film series exploring emptiness as a form of luxury.",
     year: "2025",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1534349762230-e1d0fce8b4e4?w=1200&q=80",
     tags: ["Film", "Fashion", "Art Direction"],
     details: "VOID reimagines the concept of luxury through the lens of negative space. Each piece in the series strips away the superfluous, leaving only the essential. The film series was shot across brutalist architectures in Berlin and Tokyo, creating a dialogue between human form and geometric precision.",
     role: "Director & Art Director",
