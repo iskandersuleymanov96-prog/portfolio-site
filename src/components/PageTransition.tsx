@@ -180,7 +180,7 @@ export function SectionReveal({ children, className = "", delay = 0 }: Props & {
 export function TextReveal({ children, className = "", delay = 0 }: Props & { delay?: number }) {
   const words = typeof children === "string" ? children.split(" ") : [children];
   return (
-    <span className={`inline-flex flex-wrap ${className}`} aria-label={typeof children === "string" ? children : undefined}>
+    <span className={className} aria-label={typeof children === "string" ? children : undefined}>
       {words.map((word, i) => (
         <motion.span
           key={i}
@@ -188,9 +188,10 @@ export function TextReveal({ children, className = "", delay = 0 }: Props & { de
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, delay: delay + i * 0.04, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-block mr-[0.3em]"
+          className="inline-block"
         >
           {word}
+          {i < words.length - 1 && "\u00A0"}
         </motion.span>
       ))}
     </span>
