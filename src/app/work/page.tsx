@@ -7,7 +7,7 @@ import Link from "next/link";
 import PageTransition, { SectionLabel, SectionTitle, ImageScaleReveal } from "@/components/PageTransition";
 import { projects, categories } from "@/lib/data";
 
-export default function PortfolioPage() {
+export default function WorkPage() {
   const [activeCategory, setActiveCategory] = useState("All");
 
   const filtered =
@@ -23,7 +23,7 @@ export default function PortfolioPage() {
     <PageTransition>
       <section className="pt-40 pb-20 px-6 md:px-12 lg:px-16">
         <div className="max-w-[1400px] mx-auto">
-          <SectionLabel>Portfolio</SectionLabel>
+          <SectionLabel>Work</SectionLabel>
           <SectionTitle>
             Selected
             <br />
@@ -77,7 +77,7 @@ export default function PortfolioPage() {
                     transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
                     className={colSpan}
                   >
-                    <Link href={`/portfolio/${project.slug}`} className="group block">
+                    <Link href={`/work/${project.slug}`} className="group block">
                       <div className="relative overflow-hidden rounded-lg">
                         <div className={`${aspectRatio} relative overflow-hidden`}>
                           <ImageScaleReveal className="absolute inset-0">

@@ -11,14 +11,6 @@ export interface Project {
   client: string;
 }
 
-export interface JournalEntry {
-  slug: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  category: string;
-}
-
 export const projects: Project[] = [
   {
     slug: "noir-campaign",
@@ -94,44 +86,6 @@ export const projects: Project[] = [
   },
 ];
 
-export const journalEntries: JournalEntry[] = [
-  {
-    slug: "intelligence-as-empathy",
-    title: "Intelligence as Empathy",
-    excerpt: "On the convergence of artificial intelligence and emotional understanding — why the future of technology lies not in calculation but in compassion.",
-    date: "March 2026",
-    category: "Visual Culture",
-  },
-  {
-    slug: "the-aesthetics-of-absence",
-    title: "The Aesthetics of Absence",
-    excerpt: "Exploring how negative space, minimalism, and restraint have become the new language of luxury in contemporary design.",
-    date: "January 2026",
-    category: "Art",
-  },
-  {
-    slug: "digital-materiality",
-    title: "Digital Materiality",
-    excerpt: "When pixels become texture — a visual research essay on how we perceive surfaces and materials in virtual environments.",
-    date: "November 2025",
-    category: "Visual Research",
-  },
-  {
-    slug: "cinema-of-architecture",
-    title: "Cinema of Architecture",
-    excerpt: "How brutalist spaces and geometric precision shape the emotional landscape of fashion film.",
-    date: "September 2025",
-    category: "Fashion",
-  },
-  {
-    slug: "sound-as-image",
-    title: "Sound as Image",
-    excerpt: "Translating audio frequencies into visual forms — the synesthetic practice of album artwork design.",
-    date: "July 2025",
-    category: "Music",
-  },
-];
-
 export const categories = [
   "All",
   "AI Campaigns",
@@ -144,22 +98,26 @@ export const categories = [
 export const services = [
   {
     title: "Creative Direction",
-    description: "Defining the visual and conceptual strategy for brands, campaigns, and cultural projects.",
+    description: "Defining the visual and conceptual strategy for brands, campaigns, and cultural projects. From initial concept to final execution — building cohesive visual narratives that resonate.",
   },
   {
-    title: "AI Campaign Production",
-    description: "Leveraging artificial intelligence to create imagery and narratives that transcend physical limitations.",
+    title: "AI Filmmaking",
+    description: "Leveraging artificial intelligence to create imagery and narratives that transcend physical limitations. Pushing the boundaries of what's possible in visual storytelling.",
   },
   {
-    title: "Visual Identity",
-    description: "Crafting cohesive visual systems — from logos to full brand languages — that embody a vision.",
-  },
-  {
-    title: "Content Production",
-    description: "End-to-end production of photography, film, and digital content for editorial and commercial use.",
+    title: "Visual Research",
+    description: "Investigating how we perceive materiality, texture, and form in digital spaces. Publishing findings as monographs, exhibitions, and applied visual systems.",
   },
   {
     title: "Art Direction",
-    description: "Orchestrating the visual elements of a project to ensure a unified, compelling aesthetic.",
+    description: "Orchestrating the visual elements of a project to ensure a unified, compelling aesthetic. Every frame, every surface, every shadow — considered.",
+  },
+  {
+    title: "Music & Sound",
+    description: "Translating audio frequencies into visual forms. Album artwork, live performance visuals, and synesthetic design systems that bridge sound and image.",
+  },
+  {
+    title: "Visual Identity",
+    description: "Crafting cohesive visual systems — from logos to full brand languages — that embody a vision. Restraint, craft, intention.",
   },
 ];

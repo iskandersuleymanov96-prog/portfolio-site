@@ -10,8 +10,8 @@ const socialLinks = [
 
 const navLinks = [
   { href: "/about", label: "About" },
-  { href: "/portfolio", label: "Work" },
-  { href: "/journal", label: "Journal" },
+  { href: "/work", label: "Work" },
+  { href: "/services", label: "Services" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -27,7 +27,7 @@ export default function Footer() {
               Saintnuit
             </Link>
             <p className="body-large max-w-sm">
-              Creative Director & AI Filmmaker. Crafting visual experiences
+              Creative Director &amp; AI Filmmaker. Crafting visual experiences
               at the intersection of technology and aesthetics.
             </p>
           </div>

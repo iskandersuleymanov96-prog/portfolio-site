@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
-import PageTransition, { SectionLabel, SectionTitle, FadeInUp, HorizontalSlideIn } from "@/components/PageTransition";
+import PageTransition, { SectionLabel, SectionTitle, FadeInUp, HorizontalSlideIn, SectionReveal } from "@/components/PageTransition";
 
 const contactLinks = [
   { label: "Instagram", href: "https://instagram.com/saintnuit", value: "@saintnuit" },
@@ -12,10 +12,11 @@ const contactLinks = [
 
 const availableServices = [
   "Creative Direction",
-  "AI Campaigns",
+  "AI Filmmaking",
   "Art Direction",
+  "Visual Research",
   "Visual Identity",
-  "Film Production",
+  "Music & Sound",
 ];
 
 export default function ContactPage() {
@@ -65,6 +66,7 @@ export default function ContactPage() {
         </div>
       </section>
 
+      <SectionReveal>
       <section className="px-6 md:px-12 lg:px-16 pb-20">
         <div className="max-w-[1400px] mx-auto">
           <FadeInUp>
@@ -83,7 +85,9 @@ export default function ContactPage() {
           </FadeInUp>
         </div>
       </section>
+      </SectionReveal>
 
+      <SectionReveal>
       <section className="px-6 md:px-12 lg:px-16 pb-32">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
           <HorizontalSlideIn className="lg:col-span-5">
@@ -197,17 +201,23 @@ export default function ContactPage() {
                   <option value="" className="bg-[#080808]">
                     Select a project type
                   </option>
-                  <option value="campaign" className="bg-[#080808]">
-                    AI Campaign
+                  <option value="creative-direction" className="bg-[#080808]">
+                    Creative Direction
                   </option>
-                  <option value="film" className="bg-[#080808]">
-                    Film Production
-                  </option>
-                  <option value="identity" className="bg-[#080808]">
-                    Visual Identity
+                  <option value="ai-filmmaking" className="bg-[#080808]">
+                    AI Filmmaking
                   </option>
                   <option value="art-direction" className="bg-[#080808]">
                     Art Direction
+                  </option>
+                  <option value="visual-research" className="bg-[#080808]">
+                    Visual Research
+                  </option>
+                  <option value="visual-identity" className="bg-[#080808]">
+                    Visual Identity
+                  </option>
+                  <option value="music" className="bg-[#080808]">
+                    Music &amp; Sound
                   </option>
                   <option value="other" className="bg-[#080808]">
                     Other
@@ -260,6 +270,7 @@ export default function ContactPage() {
           </FadeInUp>
         </div>
       </section>
+      </SectionReveal>
     </PageTransition>
   );
 }

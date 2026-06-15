@@ -36,7 +36,7 @@ export default function ProjectPage({
       <section className="pt-32 pb-12 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto">
           <Link
-            href="/portfolio"
+            href="/work"
             className="inline-flex items-center gap-2 text-[10px] tracking-[0.2em] uppercase text-[#6b6860] hover:text-[#b8976a] transition-colors duration-300 mb-16 group"
           >
             <svg
@@ -52,7 +52,7 @@ export default function ProjectPage({
             >
               <path d="M19 12H5M5 12L12 19M5 12L12 5" />
             </svg>
-            Back to Portfolio
+            Back to Work
           </Link>
 
           <motion.div
@@ -155,7 +155,7 @@ export default function ProjectPage({
             Next Project
           </p>
           <Link
-            href={`/portfolio/${nextProject.slug}`}
+            href={`/work/${nextProject.slug}`}
             className="group block"
           >
             <div className="luxury-card">

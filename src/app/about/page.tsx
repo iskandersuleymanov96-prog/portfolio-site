@@ -6,15 +6,7 @@ import { useRef } from "react";
 import PageTransition, { SectionLabel, SectionTitle, Divider, FadeInUp, ImageScaleReveal, SectionReveal, TextReveal } from "@/components/PageTransition";
 import { services } from "@/lib/data";
 
-const timeline = [
-  { year: "2024", event: "Founded Saintnuit studio" },
-  { year: "2023", event: "Art Director, Palais de Tokyo exhibition" },
-  { year: "2022", event: "Visual identity for The Row" },
-  { year: "2021", event: "AI filmmaker residency, Berlin" },
-  { year: "2020", event: "Released first experimental film" },
-];
-
-const skills = ["Creative Direction", "AI Filmmaking", "Visual Identity", "Art Direction", "Fashion Film", "Music", "Visual Research", "Installation"];
+const skills = ["Creative Direction", "AI Filmmaking", "Visual Researcher", "Musician", "Art Director", "Fashion Film", "Visual Identity", "Installation"];
 
 export default function AboutPage() {
   const portraitRef = useRef<HTMLDivElement>(null);
@@ -161,32 +153,6 @@ export default function AboutPage() {
                       {service.description}
                     </p>
                   </div>
-                </div>
-              </FadeInUp>
-            ))}
-          </div>
-        </div>
-      </section>
-      </SectionReveal>
-
-      <Divider />
-
-      <SectionReveal>
-      <section className="section-padding px-6 md:px-12 lg:px-16" aria-labelledby="timeline-heading">
-        <div className="max-w-[1400px] mx-auto">
-          <SectionLabel>Experience</SectionLabel>
-          <SectionTitle id="timeline-heading">Career</SectionTitle>
-
-          <div className="mt-24 space-y-0">
-            {timeline.map((item, i) => (
-              <FadeInUp key={item.year} delay={i * 0.08}>
-                <div className="service-row py-8 flex items-center gap-8 group">
-                  <span className="text-sm text-[#555] tracking-wider font-mono w-20 shrink-0">
-                    {item.year}
-                  </span>
-                  <span className="heading-section group-hover:text-[#c9a96e] transition-colors duration-500">
-                    {item.event}
-                  </span>
                 </div>
               </FadeInUp>
             ))}

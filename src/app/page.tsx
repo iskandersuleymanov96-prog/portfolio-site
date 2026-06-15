@@ -131,7 +131,7 @@ export default function Home() {
 
           <div className="mt-16">
             <FadeInUp>
-              <Link href={`/portfolio/${featuredProjects[0].slug}`} className="group block">
+              <Link href={`/work/${featuredProjects[0].slug}`} className="group block">
                 <div className="relative overflow-hidden rounded-lg aspect-[21/9] md:aspect-[21/8]">
                   <ImageScaleReveal className="absolute inset-0">
                     <Image
@@ -157,7 +157,7 @@ export default function Home() {
           <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
             <div className="md:col-span-7">
               <FadeInUp delay={0.1}>
-                <Link href={`/portfolio/${featuredProjects[1].slug}`} className="group block">
+                <Link href={`/work/${featuredProjects[1].slug}`} className="group block">
                   <div className="relative overflow-hidden rounded-lg aspect-[4/5]">
                     <ImageScaleReveal className="absolute inset-0">
                       <Image
@@ -181,7 +181,7 @@ export default function Home() {
 
             <div className="md:col-span-5 flex flex-col justify-between">
               <FadeInUp delay={0.2}>
-                <Link href={`/portfolio/${featuredProjects[2].slug}`} className="group block">
+                <Link href={`/work/${featuredProjects[2].slug}`} className="group block">
                   <div className="relative overflow-hidden rounded-lg aspect-[16/10]">
                     <ImageScaleReveal className="absolute inset-0">
                       <Image
@@ -213,7 +213,7 @@ export default function Home() {
 
           <div className="mt-16">
             <FadeInUp delay={0.15}>
-              <Link href={`/portfolio/${featuredProjects[3].slug}`} className="group block">
+              <Link href={`/work/${featuredProjects[3].slug}`} className="group block">
                 <div className="relative overflow-hidden rounded-lg aspect-[21/9]">
                   <ImageScaleReveal className="absolute inset-0">
                     <Image
@@ -238,7 +238,7 @@ export default function Home() {
           </div>
 
           <FadeInUp className="mt-20 text-center" delay={0.2}>
-            <Link href="/portfolio" className="magnetic-btn">
+            <Link href="/work" className="magnetic-btn">
               View All Work
               <span className="btn-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -306,9 +306,10 @@ export default function Home() {
           <div className="mt-16">
             {[
               { num: "01", title: "Creative Direction", desc: "Defining visual strategy for brands and cultural projects" },
-              { num: "02", title: "AI Campaign Production", desc: "Creating imagery that transcends physical limitations" },
-              { num: "03", title: "Visual Identity", desc: "Crafting cohesive visual systems and brand languages" },
+              { num: "02", title: "AI Filmmaking", desc: "Creating imagery that transcends physical limitations" },
+              { num: "03", title: "Visual Research", desc: "Investigating materiality and form in digital spaces" },
               { num: "04", title: "Art Direction", desc: "Orchestrating visual elements for unified aesthetics" },
+              { num: "05", title: "Music & Sound", desc: "Translating audio frequencies into visual forms" },
             ].map((service, i) => (
               <FadeInUp key={service.title} delay={i * 0.08}>
                 <div className="service-row py-10 md:py-14 group">
@@ -342,6 +343,17 @@ export default function Home() {
               </FadeInUp>
             ))}
           </div>
+
+          <FadeInUp className="mt-16 text-center" delay={0.2}>
+            <Link href="/services" className="magnetic-btn">
+              All Services
+              <span className="btn-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+              </span>
+            </Link>
+          </FadeInUp>
         </div>
       </section>
       </SectionReveal>
